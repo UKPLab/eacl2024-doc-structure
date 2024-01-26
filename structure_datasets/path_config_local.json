@@ -1,0 +1,6 @@
+{
+  "path.QASPER": "/path/to/unzipped/QASPER-dataset",
+  "path.QASPER-ITG": "/path/to/write/QASPER-ITG-dataset",
+  "path.EVIDENCE-INFERENCE": "/path/to/unzipped/EVIDENCE-INFERENCE-dataset",
+  "path.EVIDENCE-INFERENCE-ITG": "/path/to/write/EVIDENCE-INFERENCE-ITG-dataset"
+}

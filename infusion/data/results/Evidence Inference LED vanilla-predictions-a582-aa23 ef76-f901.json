@@ -1,0 +1,173 @@
+{
+    "model_name": "LED",
+    "task_name": "Evidence Inference",
+    "description": "vanilla-predictions-a582-aa23",
+    "config": {
+        "slurm_job_id": 655901,
+        "description": "vanilla-predictions-a582-aa23",
+        "remote_debug": false,
+        "do_train": false,
+        "use_dev_as_test_data": false,
+        "load_model": true,
+        "load_strict": false,
+        "hash_to_load": "a582-aa23",
+        "save_predictions": true,
+        "max_input_length": null,
+        "max_output_length": null,
+        "max_depth": 20,
+        "node_types": [
+            "article-title",
+            "abstract",
+            "title",
+            "p"
+        ],
+        "input_sequence": {
+            "mode": "vanilla",
+            "replace_newlines": false,
+            "do_close": false,
+            "node_separator": " ",
+            "include_node_types": [
+                "article-title",
+                "abstract",
+                "title",
+                "p"
+            ],
+            "use_core_node_types_only": true,
+            "use_bos_eos_token": false,
+            "bos_token": null,
+            "eos_token": null
+        },
+        "position_embeddings": {
+            "mode": "vanilla",
+            "init_std": 0.0305,
+            "max_norm": 0.001
+        },
+        "post_encoder_position_embeddings": {
+            "mode": "vanilla",
+            "init_std": 0.0305
+        },
+        "attention": {
+            "mode": "vanilla"
+        },
+        "scaffold_tasks": {
+            "mode": "vanilla",
+            "token_chance": 0.05,
+            "on_task_data": true,
+            "scaffold_weight": 0.3,
+            "on_s2orc_itg_subset": false,
+            "num_docs_per_shard": 200,
+            "instances_ratio": 0.3
+        },
+        "fast_dev_run": false,
+        "accelerator": "gpu",
+        "precision": 32,
+        "dataloader_num_workers": 7,
+        "gradient_checkpointing": false,
+        "use_cache": true,
+        "num_sanity_val_steps": -1,
+        "log_every_n_steps": 50,
+        "random": {
+            "seed": 635191,
+            "deterministic_trainer": false
+        },
+        "task": {
+            "task_name": "Evidence Inference",
+            "deep_or_shallow": "deep"
+        },
+        "model": {
+            "model_name": "LED",
+            "task_name": "Evidence Inference",
+            "evidence": {
+                "learn_evidence_detection": true,
+                "evidence_detection_weight": 0.5,
+                "use_evidence_loss_weights": false,
+                "relevant_node_types": [
+                    "p"
+                ]
+            },
+            "max_steps": 10200,
+            "min_steps": 10200,
+            "val_check_interval": 4000,
+            "batch_size": 1,
+            "accumulate_grad_batches": 8,
+            "learning_rate": 1e-05
+        }
+    },
+    "hash": "ef76-f901",
+    "stats": {
+        "task-initialization.deep-or-shallow": "deep",
+        "task-initialization.num-train-documents": 3562,
+        "task-initialization.num-dev-documents": 443,
+        "task-initialization.num-test-documents": 449,
+        "task-initialization.prompt-has-no-annotations": 258,
+        "task-initialization.annotation-has-empty-evidence-text": 0,
+        "task-initialization.annotation-has-no-evidence-node": 971,
+        "task-initialization.annotation-has-more-than-one-evidence-node": 1027,
+        "task-initialization.num-train-instances": 18545,
+        "task-initialization.num-dev-instances": 1232,
+        "task-initialization.num-test-instances": 1218,
+        "task-initialization.label-statistics": {
+            "-1": 4429,
+            "0": 8525,
+            "1": 5591
+        },
+        "task-initialization.evidence-statistics": {
+            "0": 1265402,
+            "1": 18861
+        }
+    },
+    "results_by_step": [],
+    "best_num_steps": 0,
+    "test_result": {
+        "classification_class_confusion_matrices": {
+            "significantly decreased": {
+                "TN": 777,
+                "TP": 230,
+                "FP": 147,
+                "FN": 64
+            },
+            "no significant difference": {
+                "TN": 633,
+                "TP": 388,
+                "FP": 70,
+                "FN": 127
+            },
+            "significantly increased": {
+                "TP": 288,
+                "TN": 714,
+                "FN": 121,
+                "FP": 95
+            }
+        },
+        "classification_class_precisions": {
+            "significantly decreased": 0.610079575596817,
+            "no significant difference": 0.8471615720524017,
+            "significantly increased": 0.7519582245430809
+        },
+        "classification_class_recalls": {
+            "significantly decreased": 0.782312925170068,
+            "no significant difference": 0.7533980582524272,
+            "significantly increased": 0.7041564792176039
+        },
+        "classification_class_f1_scores": {
+            "significantly decreased": 0.6855439642324889,
+            "no significant difference": 0.7975334018499487,
+            "significantly increased": 0.7272727272727274
+        },
+        "classification_macro_f1_score": 0.7367833644517217,
+        "evidence_detection_confusion_matrix": {
+            "TN": 81563,
+            "TP": 684,
+            "FP": 387,
+            "FN": 507
+        },
+        "evidence_detection_precision": 0.6386554621848739,
+        "evidence_detection_recall": 0.5743073047858942,
+        "evidence_detection_f1_score": 0.6047745358090185,
+        "table_entries": {
+            "EvI Classification F1": 0.7367833644517217,
+            "EvI Evidence F1": 0.6047745358090185
+        }
+    },
+    "total_time": 316.4598619937897
+}

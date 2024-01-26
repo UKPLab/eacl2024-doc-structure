@@ -1,0 +1,82 @@
+slurm_job_id: 0
+description: "dummy-description"
+
+defaults:
+  - _self_
+  - location: local
+  - task: evidence_inference
+  - model: led_for_evidence_inference
+
+# TRAINING & MODEL
+remote_debug: False
+do_train: True
+use_dev_as_test_data: False
+load_model: False
+load_strict: False
+hash_to_load: null
+save_predictions: True
+
+max_input_length: null
+max_output_length: null
+
+
+# STRUCTURE INFUSION
+max_depth: 20
+node_types:
+    - "article-title"
+    - "abstract"
+    - "title"
+    - "p"
+
+input_sequence:
+  mode: "vanilla"
+  replace_newlines: False
+  do_close: False
+  node_separator: " "
+  include_node_types:
+    - "article-title"
+    - "abstract"
+    - "title"
+    - "p"
+  use_core_node_types_only: True # Whether to use only the node types article-title, abstract, title and p for structural tokens. This ensures backwards compatibility to older checkpoints
+  use_bos_eos_token: False # Whether to use the bos and eos tokens of the tokenizer as structural tokens for node boundaries
+  bos_token: null
+  eos_token: null
+
+position_embeddings:
+  mode: "vanilla"
+  init_std: 0.0305 # std of led position embeddings is 0.0305
+  max_norm: 0.001
+
+post_encoder_position_embeddings:
+  mode: "vanilla"
+  init_std: 0.0305
+
+attention:
+  mode: "vanilla"
+
+scaffold_tasks:
+  mode: "vanilla"
+  token_chance: 0.05
+
+  on_task_data: True
+  scaffold_weight: 0.3
+
+  on_s2orc_itg_subset: False
+  num_docs_per_shard: 200 # * 100 = total number of docs
+  instances_ratio: 0.3
+
+
+# ENGINEERING
+fast_dev_run: False
+accelerator: "gpu"
+precision: 32
+dataloader_num_workers: 2
+gradient_checkpointing: False
+use_cache: True
+num_sanity_val_steps: -1
+log_every_n_steps: 50
+
+random:
+  seed: 635191
+  deterministic_trainer: False  # this crashes LED self-attention

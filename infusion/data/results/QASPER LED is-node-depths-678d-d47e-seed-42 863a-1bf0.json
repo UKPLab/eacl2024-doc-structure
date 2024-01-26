@@ -1,0 +1,2323 @@
+{
+    "model_name": "LED",
+    "task_name": "QASPER",
+    "description": "is-node-depths-678d-d47e-seed-42",
+    "config": {
+        "slurm_job_id": 658202,
+        "description": "is-node-depths-678d-d47e-seed-42",
+        "remote_debug": false,
+        "do_train": true,
+        "use_dev_as_test_data": false,
+        "load_model": true,
+        "load_strict": false,
+        "hash_to_load": "678d-d47e",
+        "save_predictions": true,
+        "max_input_length": null,
+        "max_output_length": null,
+        "max_depth": 20,
+        "node_types": [
+            "article-title",
+            "abstract",
+            "title",
+            "p"
+        ],
+        "input_sequence": {
+            "mode": "text_with_node_depths",
+            "replace_newlines": false,
+            "do_close": false,
+            "node_separator": " ",
+            "include_node_types": [
+                "article-title",
+                "abstract",
+                "title",
+                "p"
+            ],
+            "use_core_node_types_only": true,
+            "use_bos_eos_token": false,
+            "bos_token": null,
+            "eos_token": null
+        },
+        "position_embeddings": {
+            "mode": "vanilla",
+            "init_std": 0.0305,
+            "max_norm": 0.001
+        },
+        "post_encoder_position_embeddings": {
+            "mode": "vanilla",
+            "init_std": 0.0305
+        },
+        "attention": {
+            "mode": "vanilla"
+        },
+        "scaffold_tasks": {
+            "mode": "vanilla",
+            "token_chance": 0.05,
+            "on_task_data": true,
+            "scaffold_weight": 0.3,
+            "on_s2orc_itg_subset": false,
+            "num_docs_per_shard": 200,
+            "instances_ratio": 0.3
+        },
+        "fast_dev_run": false,
+        "accelerator": "gpu",
+        "precision": 32,
+        "dataloader_num_workers": 7,
+        "gradient_checkpointing": false,
+        "use_cache": true,
+        "num_sanity_val_steps": -1,
+        "log_every_n_steps": 50,
+        "random": {
+            "seed": 42,
+            "deterministic_trainer": false
+        },
+        "task": {
+            "task_name": "QASPER",
+            "text_evidence_only": true,
+            "deep_or_shallow": "deep",
+            "count_missing_predictions": true
+        },
+        "model": {
+            "model_name": "LED",
+            "task_name": "QASPER",
+            "num_beams": 4,
+            "do_sample": false,
+            "length_penalty": 1,
+            "max_length": 100,
+            "evidence": {
+                "learn_evidence_detection": true,
+                "evidence_detection_weight": 0.5,
+                "use_evidence_loss_weights": false,
+                "relevant_node_types": [
+                    "p"
+                ]
+            },
+            "max_steps": 10200,
+            "min_steps": 10200,
+            "val_check_interval": 4000,
+            "batch_size": 1,
+            "accumulate_grad_batches": 8,
+            "learning_rate": 1e-05
+        }
+    },
+    "hash": "863a-1bf0",
+    "stats": {
+        "task-initialization.num-train-documents": 888,
+        "task-initialization.num-dev-documents": 281,
+        "task-initialization.num-test-documents": 416,
+        "task-initialization.num-train-instances": 2675,
+        "task-initialization.num-dev-instances": 1005,
+        "task-initialization.num-test-instances": 1451,
+        "task-initialization.evidence-statistics": {
+            "0": 212372,
+            "1": 4085
+        }
+    },
+    "results_by_step": [
+        [
+            0,
+            {
+                "answer_f1": 0.03859457695394027,
+                "answer_f1_by_type": {
+                    "extractive": 0.044819980918469386,
+                    "abstractive": 0.05530283610911355,
+                    "boolean": 0.0,
+                    "none": 0.0
+                },
+                "evidence_f1": 0.0734688185641619,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.03590746115594682,
+                "multi_mean_rouge_2": 0.00404202576366185,
+                "multi_mean_rouge_l": 0.029277137822904767,
+                "multi_max_rouge_1": 0.04648513595065001,
+                "multi_max_rouge_2": 0.0057138673595493366,
+                "multi_max_rouge_l": 0.03763117797074891,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        " <node-2> Introduction <node-3> In this paper, we propose a cross-lingual pre-training based transfer approach for zero-shot translation. Our main contributions are as follows: <node-3> We propose a novel cross-lingual pre-training based transfer approach for zero-shot translation. We propose a cross-lingual pre-training based transfer approach based on cross-lingual pre-training based transfer for zero-shot translation. We propose a cross-lingual pre-training based"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        " <node-2> Introduction <node-3> In this paper, we propose a cross-lingual pre-training based transfer approach for zero-shot translation. Our main idea is to make all source and pivot languages share the same feature space and thus enable a smooth transition for zero-shot translation. <node-3> We propose a cross-lingual pre-training based transfer approach for zero-shot translation. Our key idea is to make all source and pivot languages share the same feature space and thus enable a smooth"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        " BIBREF11, BIBREF12, BIBREF13, BIBREF14, BIBREF15, BIBREF16, BIBREF17, BIBREF17, BIBREF18, BIBREF17, BIBREF18, BIBREF18, BIBREF18, BIBREF19, BIBREF18, BIBREF19, BIBREF18, BIBREF19, BIBREF19, BIBREF"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "$\\rightarrow $pivot$\\rightarrow $pivot$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target$\\rightarrow $target"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " <node-2> Acknowledgments <node-3> We thank the anonymous reviewers for their helpful comments and suggestions. We would like to thank the anonymous reviewers for their helpful comments and suggestions. We would also like to thank the anonymous reviewers for their helpful comments and suggestions. <node-2> Acknowledgments <node-3> We thank the anonymous reviewers for their helpful comments and suggestions. We would also like to thank the anonymous reviewers for their helpful comments and suggestions."
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        " <node-2> Acknowledgments <node-3> We thank the anonymous reviewers for their insightful comments and suggestions. We would like to thank the anonymous reviewers for their helpful comments and suggestions. We would also like to thank the anonymous reviewers for their helpful comments and suggestions. <node-2> Acknowledgments <node-3> We thank the anonymous reviewers for their helpful comments and suggestions. We would also like to thank the anonymous reviewers for their helpful comments and suggestions."
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        " <node-2> Introduction <node-3> Named entity recognition is an important task of natural language processing. In this work, we focus on automated data generation and annotation for the Armenian language. In particular, we address the absence of a benchmark dataset for named entity recognition for the Armenian language. We present a gold-standard test corpus with manual annotation of people, organization and location named entities. The gold-standard test corpus provides a gold-standard test corpus with manual annotation of people, organization and location named entities"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        " <node-2> Introduction <node-3> Dogmatism is a deeper personality trait, present for dogmatic and non-dogmatic users across many different domains. Our model is based on a corpus of 5,000 Reddit posts annotated with levels of dogmatism. We use this corpus to train a predictive model that can identify dogmatism in comments. We use this corpus to train a predictive model that can identify dogmatism in comments. We use this corpus to train a predictive model that can"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        " <node-2> Related Work <node-3> We explore key aspects of dogmatism, such as over-confidence and strong emotions BIBREF0. We use the linguistic features we have described to build a predictive model that predicts dogmatism. We use the linguistic features we have described to build a predictive model that can identify dogmatism in comments. We use the linguistic features we have described to build a predictive model that can identify dogmatism in comments. We use the linguistic features we have"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        " <node-3> In this paper, we propose an approach to performing crowd annotation learning for Chinese Named Entity Recognition (NER). In this paper, we propose an adversarial learning approach to perform crowd annotation learning for Chinese Named Entity Recognition (NER) to make full use of the noisy sequence labels from multiple annotators. In this paper, we propose an adversarial learning approach to perform crowd annotation learning for Chinese Named Entity Recognition (NER) to make full use of the noisy sequence labels from"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.03859457695394027,
+                    "QASPER Evidence F1": 0.0734688185641619,
+                    "QASPER R1": 0.04648513595065001,
+                    "QASPER R2": 0.0057138673595493366,
+                    "QASPER RL": 0.03763117797074891
+                }
+            }
+        ],
+        [
+            500,
+            {
+                "answer_f1": 0.27199544919918334,
+                "answer_f1_by_type": {
+                    "extractive": 0.26064111769292053,
+                    "abstractive": 0.11944266461945195,
+                    "boolean": 0.5785123966942148,
+                    "none": 0.34444444444444444
+                },
+                "evidence_f1": 0.23980099502487562,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.22346324666934897,
+                "multi_mean_rouge_2": 0.073142941881954,
+                "multi_mean_rouge_l": 0.21368386062762412,
+                "multi_max_rouge_1": 0.28194662971286744,
+                "multi_max_rouge_2": 0.10231307440390496,
+                "multi_max_rouge_l": 0.2711292168474536,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Spanish (Fr-En-Fr) and Romanian-English-German (Ro-En-De), where English acts as the pivot language, its left side is the source language, and its right side is the target language"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER is conditional random fields (CRF) classifier based on lexical and contextual features such as the current word, character-level n-grams of up to length 6 at its beginning and the end, previous and next words, word shape and sequence features BIBREF16"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "Wikipedia, news, blogs, and encyclopedia"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "Yes"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.27199544919918334,
+                    "QASPER Evidence F1": 0.23980099502487562,
+                    "QASPER R1": 0.28194662971286744,
+                    "QASPER R2": 0.10231307440390496,
+                    "QASPER RL": 0.2711292168474536
+                }
+            }
+        ],
+        [
+            1001,
+            {
+                "answer_f1": 0.29166204498363946,
+                "answer_f1_by_type": {
+                    "extractive": 0.2792098379360318,
+                    "abstractive": 0.13661294269807214,
+                    "boolean": 0.5808110494012282,
+                    "none": 0.4186046511627907
+                },
+                "evidence_f1": 0.23980099502487562,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.24067172140239054,
+                "multi_mean_rouge_2": 0.08251623332830095,
+                "multi_mean_rouge_l": 0.23043083537167613,
+                "multi_max_rouge_1": 0.30028551953523425,
+                "multi_max_rouge_2": 0.11143394653790123,
+                "multi_max_rouge_l": 0.28820993391224037,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size, 100k sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size, and the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Spanish (Fr-En-Fr), German-English-French (De-En-Fr), Romanian-English-German (Ro-En-De), where English acts as the pivot language, its left side is the source language, and its right side is the target language"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER is conditional random fields (CRF) classifier based on lexical and contextual features such as the current word, character-level n-grams of up to length 6 at its beginning and the end, previous and next words, word shape and sequence features BIBREF16. Stanford NER is conditional random fields (CRF) classifier based on lexical and contextual features such as the current word, character-level n-grams of up to length"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "Unanswerable"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "Yes"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.29166204498363946,
+                    "QASPER Evidence F1": 0.23980099502487562,
+                    "QASPER R1": 0.30028551953523425,
+                    "QASPER R2": 0.11143394653790123,
+                    "QASPER RL": 0.28820993391224037
+                }
+            }
+        ],
+        [
+            1502,
+            {
+                "answer_f1": 0.303287881024155,
+                "answer_f1_by_type": {
+                    "extractive": 0.2956482052023495,
+                    "abstractive": 0.1386120089186902,
+                    "boolean": 0.6166666666666667,
+                    "none": 0.3707865168539326
+                },
+                "evidence_f1": 0.23980099502487562,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.25242557656157133,
+                "multi_mean_rouge_2": 0.089497737312075,
+                "multi_mean_rouge_l": 0.2415663399507344,
+                "multi_max_rouge_1": 0.31290541487101203,
+                "multi_max_rouge_2": 0.12098090377118564,
+                "multi_max_rouge_l": 0.29981921952238616,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, XLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Russian (Fr-En-Fr), German-English-French (De-En-Fr), Romanian-English-German (Ro-En-De), where English acts as the pivot language, its left side is the source language, and its right side is the target language"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER classifier based on lexical and contextual features such as the current word, character-level n-grams of up to length 6 at its beginning and the end, previous and next words, word shape and sequence features BIBREF16, Stanford NER classifier based on lexical and contextual features such as the current word, character-level n-grams of up to length 6 at its beginning and the end, previous and next words, word shape and"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "Unanswerable"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "Yes"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "accuracy of +6.12 F1 improvement on DL-PS, +4.51 on EC-MT, and +9.19 on EC-UQ"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.303287881024155,
+                    "QASPER Evidence F1": 0.23980099502487562,
+                    "QASPER R1": 0.31290541487101203,
+                    "QASPER R2": 0.12098090377118564,
+                    "QASPER RL": 0.29981921952238616
+                }
+            }
+        ],
+        [
+            2003,
+            {
+                "answer_f1": 0.2877481652912803,
+                "answer_f1_by_type": {
+                    "extractive": 0.27033015561434887,
+                    "abstractive": 0.10938428009488252,
+                    "boolean": 0.5833333333333334,
+                    "none": 0.4838709677419355
+                },
+                "evidence_f1": 0.26462370686251285,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.23901604689940534,
+                "multi_mean_rouge_2": 0.07948630826115306,
+                "multi_mean_rouge_l": 0.23001283474756098,
+                "multi_max_rouge_1": 0.2968781457911465,
+                "multi_max_rouge_2": 0.1064620922055697,
+                "multi_max_rouge_l": 0.2866683709334763,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size, 4096 feed-forward filter size,"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "Unanswerable"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER, spaCy 2.0, Char-biLSTM+biLSTM, Char-biLSTM+biLSTM"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "Unanswerable"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "Yes"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "gun, LGBT, politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.2877481652912803,
+                    "QASPER Evidence F1": 0.26462370686251285,
+                    "QASPER R1": 0.2968781457911465,
+                    "QASPER R2": 0.1064620922055697,
+                    "QASPER RL": 0.2866683709334763
+                }
+            }
+        ],
+        [
+            2504,
+            {
+                "answer_f1": 0.3011105303757351,
+                "answer_f1_by_type": {
+                    "extractive": 0.29627223126338276,
+                    "abstractive": 0.14682892090541638,
+                    "boolean": 0.6260162601626016,
+                    "none": 0.32142857142857145
+                },
+                "evidence_f1": 0.288706053482173,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.24894715023628708,
+                "multi_mean_rouge_2": 0.08893177964718381,
+                "multi_mean_rouge_l": 0.23969792576090188,
+                "multi_max_rouge_1": 0.3106311812369739,
+                "multi_max_rouge_2": 0.12117790428072779,
+                "multi_max_rouge_l": 0.2994523260797939,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, 4096 feed-forward filter size"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "Arabic-English-French (Fr-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER is conditional random fields (CRF) classifier based on lexical and contextual features such as the current word, character-level n-grams of up to length 6 at its beginning and the end, previous and next words, word shape and sequence features"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only if they contain at least one named entity and all contained capitalized words have an outgoing link to an article of known type"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3011105303757351,
+                    "QASPER Evidence F1": 0.288706053482173,
+                    "QASPER R1": 0.3106311812369739,
+                    "QASPER R2": 0.12117790428072779,
+                    "QASPER RL": 0.2994523260797939
+                }
+            }
+        ],
+        [
+            3005,
+            {
+                "answer_f1": 0.31398627252003175,
+                "answer_f1_by_type": {
+                    "extractive": 0.2890724768143679,
+                    "abstractive": 0.1201369757762152,
+                    "boolean": 0.5847457627118644,
+                    "none": 0.6210526315789474
+                },
+                "evidence_f1": 0.2973130020891216,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2587600921251607,
+                "multi_mean_rouge_2": 0.08693309204965144,
+                "multi_mean_rouge_l": 0.25032229463962347,
+                "multi_max_rouge_1": 0.32129914904636503,
+                "multi_max_rouge_2": 0.1169243672417524,
+                "multi_max_rouge_l": 0.3113232378423104,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, Transformer-big model with 1024 embedding/hidden units, Transformer-big model"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, XLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "Unanswerable"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER, spaCy 2.0, Char-biLSTM+biLSTM"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "ilur.am"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "Yes"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), linguistic features from our earlier analyses (LING), and combinations of these features"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.31398627252003175,
+                    "QASPER Evidence F1": 0.2973130020891216,
+                    "QASPER R1": 0.32129914904636503,
+                    "QASPER R2": 0.1169243672417524,
+                    "QASPER RL": 0.3113232378423104
+                }
+            }
+        ],
+        [
+            3506,
+            {
+                "answer_f1": 0.319077200800775,
+                "answer_f1_by_type": {
+                    "extractive": 0.29469461329081864,
+                    "abstractive": 0.13356782579847776,
+                    "boolean": 0.6347826086956522,
+                    "none": 0.5520833333333334
+                },
+                "evidence_f1": 0.30499355358003305,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2682459407474515,
+                "multi_mean_rouge_2": 0.0961818759501568,
+                "multi_mean_rouge_l": 0.25736035328380985,
+                "multi_max_rouge_1": 0.3307923955313423,
+                "multi_max_rouge_2": 0.12881608715011292,
+                "multi_max_rouge_l": 0.31840124735602643,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, the Transformer-HA with 60K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, XLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM+BRLM"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "the recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        " ilur.am"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.319077200800775,
+                    "QASPER Evidence F1": 0.30499355358003305,
+                    "QASPER R1": 0.3307923955313423,
+                    "QASPER R2": 0.12881608715011292,
+                    "QASPER RL": 0.31840124735602643
+                }
+            }
+        ],
+        [
+            4006,
+            {
+                "answer_f1": 0.3073563223283195,
+                "answer_f1_by_type": {
+                    "extractive": 0.3232291602533458,
+                    "abstractive": 0.1476640442412272,
+                    "boolean": 0.5565217391304348,
+                    "none": 0.3258426966292135
+                },
+                "evidence_f1": 0.3132098038858356,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2556011930804828,
+                "multi_mean_rouge_2": 0.09776337655454563,
+                "multi_mean_rouge_l": 0.24293399876010813,
+                "multi_max_rouge_1": 0.31885802629187127,
+                "multi_max_rouge_2": 0.13228177336454786,
+                "multi_max_rouge_l": 0.3042122532055753,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, and the proposed BRLM-SA with back translation"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "the models with the highest F1 score on the development set were tested on the manually annotated gold dataset. The models with the highest F1 score were evaluated on the manually annotated gold dataset."
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "ilur.am"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "Yes"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "our system achieves +6.12 F1 improvement on DL-PS, +4.51 on EC-MT, and +9.19 on EC-UQ"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3073563223283195,
+                    "QASPER Evidence F1": 0.3132098038858356,
+                    "QASPER R1": 0.31885802629187127,
+                    "QASPER R2": 0.13228177336454786,
+                    "QASPER RL": 0.3042122532055753
+                }
+            }
+        ],
+        [
+            4508,
+            {
+                "answer_f1": 0.3080293589721954,
+                "answer_f1_by_type": {
+                    "extractive": 0.30018189890793284,
+                    "abstractive": 0.14204822114223742,
+                    "boolean": 0.6186440677966102,
+                    "none": 0.4065934065934066
+                },
+                "evidence_f1": 0.3238840596582845,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.259026488827913,
+                "multi_mean_rouge_2": 0.09768063768197878,
+                "multi_mean_rouge_l": 0.24704586180304963,
+                "multi_max_rouge_1": 0.31998337393499576,
+                "multi_max_rouge_2": 0.12932846482255697,
+                "multi_max_rouge_l": 0.3057892634819252,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "Arabic-English-French (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER, spaCy 2.0, Char-biLSTM+biLSTM"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only the first mention of each entity is linked, this approach becomes very restrictive and in order to include more sentences, additional links are inferred. This is accomplished by compiling a list of common aliases for articles corresponding to named entities, and then finding text fragments matching those aliases to assign a named entity label. An article's aliases include its title, titles of disambiguation pages with the article, and texts of links leading to the article (e.g. \ufffd"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "linear regression"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3080293589721954,
+                    "QASPER Evidence F1": 0.3238840596582845,
+                    "QASPER R1": 0.31998337393499576,
+                    "QASPER R2": 0.12932846482255697,
+                    "QASPER RL": 0.3057892634819252
+                }
+            }
+        ],
+        [
+            5008,
+            {
+                "answer_f1": 0.3220949530607071,
+                "answer_f1_by_type": {
+                    "extractive": 0.29869189627488935,
+                    "abstractive": 0.13895125734269645,
+                    "boolean": 0.6153846153846154,
+                    "none": 0.574468085106383
+                },
+                "evidence_f1": 0.3337398774333297,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2681904607868455,
+                "multi_mean_rouge_2": 0.09496017906587063,
+                "multi_mean_rouge_l": 0.2563473263019687,
+                "multi_max_rouge_1": 0.3329715998119985,
+                "multi_max_rouge_2": 0.12928911656632044,
+                "multi_max_rouge_l": 0.3195761955995615,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "Unanswerable"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "ilur.am"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "our system achieves +6.12 F1 improvement on DL-PS, +4.51 on EC-MT, and +9.19 on EC-UQ"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3220949530607071,
+                    "QASPER Evidence F1": 0.3337398774333297,
+                    "QASPER R1": 0.3329715998119985,
+                    "QASPER R2": 0.12928911656632044,
+                    "QASPER RL": 0.3195761955995615
+                }
+            }
+        ],
+        [
+            5510,
+            {
+                "answer_f1": 0.33238838441179,
+                "answer_f1_by_type": {
+                    "extractive": 0.31795843921518985,
+                    "abstractive": 0.14154617986501705,
+                    "boolean": 0.6491228070175439,
+                    "none": 0.5263157894736842
+                },
+                "evidence_f1": 0.34019966955159414,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.278969629061213,
+                "multi_mean_rouge_2": 0.10100164282235949,
+                "multi_mean_rouge_l": 0.2667704944244326,
+                "multi_max_rouge_1": 0.34385503810615786,
+                "multi_max_rouge_2": 0.13567418996593936,
+                "multi_max_rouge_l": 0.3299153935529514,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, and 6K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only the first mention of each entity is linked, this approach becomes very restrictive and in order to include more sentences, additional links are inferred. This is accomplished by compiling a list of common aliases for articles corresponding to named entities, and then finding text fragments matching those aliases to assign a named entity label. An article's aliases include its title, titles of disambiguation pages with the article, and texts of links leading to the article (e.g. \ufffd"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "linear regression"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "F1 score of 0.202 on the DL-PS test set and 0.202 on the EC-UQ test set"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.33238838441179,
+                    "QASPER Evidence F1": 0.34019966955159414,
+                    "QASPER R1": 0.34385503810615786,
+                    "QASPER R2": 0.13567418996593936,
+                    "QASPER RL": 0.3299153935529514
+                }
+            }
+        ],
+        [
+            6010,
+            {
+                "answer_f1": 0.32065409287383445,
+                "answer_f1_by_type": {
+                    "extractive": 0.3201549595942755,
+                    "abstractive": 0.1438535451099731,
+                    "boolean": 0.6293103448275862,
+                    "none": 0.4111111111111111
+                },
+                "evidence_f1": 0.33788245649204035,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2714322141040066,
+                "multi_mean_rouge_2": 0.10129158674772312,
+                "multi_mean_rouge_l": 0.2591879338123454,
+                "multi_max_rouge_1": 0.3335343660844096,
+                "multi_max_rouge_2": 0.1334441096325671,
+                "multi_max_rouge_l": 0.3191685270764795,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, the Transformer-HA with 60K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, the Transformer-HA with 60K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "ilur.am"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "linear regression"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Combined F1 score of 0.202 on the DL-PS and 0.202 on the EC-UQ"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.32065409287383445,
+                    "QASPER Evidence F1": 0.33788245649204035,
+                    "QASPER R1": 0.3335343660844096,
+                    "QASPER R2": 0.1334441096325671,
+                    "QASPER RL": 0.3191685270764795
+                }
+            }
+        ],
+        [
+            6511,
+            {
+                "answer_f1": 0.30821782977548023,
+                "answer_f1_by_type": {
+                    "extractive": 0.29776485891070037,
+                    "abstractive": 0.1392534070659751,
+                    "boolean": 0.6115702479338843,
+                    "none": 0.4431818181818182
+                },
+                "evidence_f1": 0.3472847431292051,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.25427678412492793,
+                "multi_mean_rouge_2": 0.09347229807610086,
+                "multi_mean_rouge_l": 0.2445921048743642,
+                "multi_max_rouge_1": 0.3178961690705879,
+                "multi_max_rouge_2": 0.12536211894542817,
+                "multi_max_rouge_l": 0.3061625698413508,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "Unanswerable"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "BERT, LaoVe, GloVe word vector models trained on a collection of Armenian texts"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only the first mention of each entity is linked, this approach becomes very restrictive and in order to include more sentences, additional links are inferred. This is accomplished by compiling a list of common aliases for articles corresponding to named entities, and then finding text fragments matching those aliases to assign a named entity label. An article's aliases include its title, titles of disambiguation pages with the article, and texts of links leading to the article (e.g. \ufffd"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), with p-values computed under a binomial test"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.30821782977548023,
+                    "QASPER Evidence F1": 0.3472847431292051,
+                    "QASPER R1": 0.3178961690705879,
+                    "QASPER R2": 0.12536211894542817,
+                    "QASPER RL": 0.3061625698413508
+                }
+            }
+        ],
+        [
+            7012,
+            {
+                "answer_f1": 0.3183345608744796,
+                "answer_f1_by_type": {
+                    "extractive": 0.32378248714938973,
+                    "abstractive": 0.16481660598886744,
+                    "boolean": 0.5714285714285714,
+                    "none": 0.391304347826087
+                },
+                "evidence_f1": 0.33566423538929446,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.27083091417175925,
+                "multi_mean_rouge_2": 0.10850513284947332,
+                "multi_mean_rouge_l": 0.2580275022857268,
+                "multi_max_rouge_1": 0.33285277925766554,
+                "multi_max_rouge_2": 0.14682371695046526,
+                "multi_max_rouge_l": 0.31819257828071384,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, the Transformer-HA with 60K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "The best approach of MLM+BRLM-SA achieves the significant superior performance to all baselines in the zero-shot directions, improving by 0.9-4.8 BLEU points over the strong pivoting, Our best approach of MLM+BRLM-SA achieves the significant superior performance to all baselines in the supervised direction of pivot$\\rightarrow $target, our approaches performs even better than the original supervised Transformer thanks to the shared encoder"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only the first mention of each entity is linked, this approach becomes very restrictive and in order to include more sentences, additional links are inferred. This is accomplished by compiling a list of common aliases for articles corresponding to named entities, and then finding text fragments matching those aliases to assign a named entity label. An article's aliases include its title, titles of disambiguation pages with the article, and texts of links leading to the article (e.g. \ufffd"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "Yes"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), with p-values computed under a binomial test"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "F1 score of 86.48 on the DL-PS and 94.48 on the EC-UQ"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3183345608744796,
+                    "QASPER Evidence F1": 0.33566423538929446,
+                    "QASPER R1": 0.33285277925766554,
+                    "QASPER R2": 0.14682371695046526,
+                    "QASPER RL": 0.31819257828071384
+                }
+            }
+        ],
+        [
+            7513,
+            {
+                "answer_f1": 0.3092765388060269,
+                "answer_f1_by_type": {
+                    "extractive": 0.2852713247123636,
+                    "abstractive": 0.12147862482337941,
+                    "boolean": 0.5504587155963303,
+                    "none": 0.6346153846153846
+                },
+                "evidence_f1": 0.3312524726923323,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.25843932931606745,
+                "multi_mean_rouge_2": 0.08902229443754234,
+                "multi_mean_rouge_l": 0.2478255581538852,
+                "multi_max_rouge_1": 0.3196604257976885,
+                "multi_max_rouge_2": 0.11871225936632254,
+                "multi_max_rouge_l": 0.3074225435748623,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, the Transformer-HA with 60K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "The strongest baselines are the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, and the Transformer-HA with 6K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33."
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "Unanswerable"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER, spaCy 2.0, Char-biLSTM+biLSTM"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the article \"Napoleon\" (in the train set of English CoNLL 2003 corpus), \u056b\u0580\u0561\u0563\u0561\u0563\u0561\u0570\u0561\u056f\u0561\u0576 \u0568\u0576\u057f\u0580\u0578\u0582\u0569\u0575\u0578\u0582\u0576\u0576\u0576\u0578\u0582\u0576 \u0576\u0578\u0582\u0576\u0576\u0576\u0578\u0580\u0578\ufffd"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "Logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), BOW and SENT provide baselines for the task"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3092765388060269,
+                    "QASPER Evidence F1": 0.3312524726923323,
+                    "QASPER R1": 0.3196604257976885,
+                    "QASPER R2": 0.11871225936632254,
+                    "QASPER RL": 0.3074225435748623
+                }
+            }
+        ],
+        [
+            8014,
+            {
+                "answer_f1": 0.3200977886944613,
+                "answer_f1_by_type": {
+                    "extractive": 0.2934073431213327,
+                    "abstractive": 0.1536032261568774,
+                    "boolean": 0.646551724137931,
+                    "none": 0.4946236559139785
+                },
+                "evidence_f1": 0.3300912154264589,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2711010264531383,
+                "multi_mean_rouge_2": 0.09762208270815595,
+                "multi_mean_rouge_l": 0.25991275600116587,
+                "multi_max_rouge_1": 0.33211351293371627,
+                "multi_max_rouge_2": 0.12920870801304168,
+                "multi_max_rouge_l": 0.31917190473571916,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, and the Multilingual model with 60K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, and 6K sub-word tokens based on Byte Pair Encoding (BPE) BIBREF33"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "a pair of Arabic-English-French (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only if they contain at least one named entity and all contained capitalized words have an outgoing link to an article of known type, Sentences are included in the training corpus only if they contain at least one named entity and all contained capitalized words have an outgoing link to an article of known type"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "linear regression"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Combined F1 score of 66.66 on the DL-PS dataset and 66.56 on the EC-UQ dataset."
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3200977886944613,
+                    "QASPER Evidence F1": 0.3300912154264589,
+                    "QASPER R1": 0.33211351293371627,
+                    "QASPER R2": 0.12920870801304168,
+                    "QASPER RL": 0.31917190473571916
+                }
+            }
+        ],
+        [
+            8515,
+            {
+                "answer_f1": 0.32836719693246463,
+                "answer_f1_by_type": {
+                    "extractive": 0.311086351722386,
+                    "abstractive": 0.15127680110579791,
+                    "boolean": 0.6403508771929824,
+                    "none": 0.5051546391752577
+                },
+                "evidence_f1": 0.3405697009444528,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2791919781782569,
+                "multi_mean_rouge_2": 0.10258545834013251,
+                "multi_mean_rouge_l": 0.26890190695496025,
+                "multi_max_rouge_1": 0.34134139741175945,
+                "multi_max_rouge_2": 0.13464417045627147,
+                "multi_max_rouge_l": 0.32905496274859747,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl BIBREF31 and MultiUN BIBREF32"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "Algeria-English-French (De-En-Fr), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only if they contain at least one named entity and all contained capitalized words have an outgoing link to an article of known type"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "linear regression"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Combined F1 score of 66.48 on the DL-PS and 66.48 on the EC-UQ datasets"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.32836719693246463,
+                    "QASPER Evidence F1": 0.3405697009444528,
+                    "QASPER R1": 0.34134139741175945,
+                    "QASPER R2": 0.13464417045627147,
+                    "QASPER RL": 0.32905496274859747
+                }
+            }
+        ],
+        [
+            9016,
+            {
+                "answer_f1": 0.3238438696846781,
+                "answer_f1_by_type": {
+                    "extractive": 0.3032229646190675,
+                    "abstractive": 0.1328262932628403,
+                    "boolean": 0.6578947368421053,
+                    "none": 0.5416666666666666
+                },
+                "evidence_f1": 0.332890336032982,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2737533021883619,
+                "multi_mean_rouge_2": 0.09514813899233258,
+                "multi_mean_rouge_l": 0.2639449907386155,
+                "multi_max_rouge_1": 0.3360854567493335,
+                "multi_max_rouge_2": 0.12517680415671667,
+                "multi_max_rouge_l": 0.3247204941027522,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT "
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, the Transformer-HA with back translation"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only the first mention of each entity is linked, this approach becomes very restrictive and in order to include more sentences, additional links are inferred. This is accomplished by compiling a list of common aliases for articles corresponding to named entities, and then finding text fragments matching those aliases to assign a named entity label. An article's aliases include its title, titles of disambiguation pages with the article, and texts of links leading to the article (e.g. \ufffd"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "linear regression"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Unanswerable"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3238438696846781,
+                    "QASPER Evidence F1": 0.332890336032982,
+                    "QASPER R1": 0.3360854567493335,
+                    "QASPER R2": 0.12517680415671667,
+                    "QASPER RL": 0.3247204941027522
+                }
+            }
+        ],
+        [
+            9517,
+            {
+                "answer_f1": 0.31173433790572547,
+                "answer_f1_by_type": {
+                    "extractive": 0.3097660945457922,
+                    "abstractive": 0.14098615128815004,
+                    "boolean": 0.6016949152542372,
+                    "none": 0.41379310344827586
+                },
+                "evidence_f1": 0.33002086273099646,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2653251285454923,
+                "multi_mean_rouge_2": 0.09796256620171369,
+                "multi_mean_rouge_l": 0.2538783071437695,
+                "multi_max_rouge_1": 0.32480762352748405,
+                "multi_max_rouge_2": 0.12992117781417434,
+                "multi_max_rouge_l": 0.31136101529434845,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT, the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, simple pivot-based method"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "Traditional transfer learning, pivot-based method and multilingual NMT, the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size, low-resource encoder trained on both large-scale monolingual data and parallel data"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        " recurrent model using a batch size of 8 and Adam optimizer with an initial learning rate of 0.001"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only the first mention of each entity is linked, this approach becomes very restrictive and in order to include more sentences, additional links are inferred. This is accomplished by compiling a list of common aliases for articles corresponding to named entities, and then finding text fragments matching those aliases to assign a named entity label."
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "linear regression"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "F1 score of 66.66%"
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.31173433790572547,
+                    "QASPER Evidence F1": 0.33002086273099646,
+                    "QASPER R1": 0.32480762352748405,
+                    "QASPER R2": 0.12992117781417434,
+                    "QASPER RL": 0.31136101529434845
+                }
+            }
+        ],
+        [
+            10018,
+            {
+                "answer_f1": 0.3122281476131571,
+                "answer_f1_by_type": {
+                    "extractive": 0.29440514622438185,
+                    "abstractive": 0.1387546029102019,
+                    "boolean": 0.6153846153846154,
+                    "none": 0.5
+                },
+                "evidence_f1": 0.33117734204929805,
+                "num_missing_predictions": 0,
+                "multi_mean_rouge_1": 0.2626862823531339,
+                "multi_mean_rouge_2": 0.0926652712101677,
+                "multi_mean_rouge_l": 0.2523122992543887,
+                "multi_max_rouge_1": 0.32423903408961663,
+                "multi_max_rouge_2": 0.12350316741519916,
+                "multi_max_rouge_l": 0.31218414756657403,
+                "samples": [
+                    [
+                        [
+                            "BIBREF19, BIBREF20",
+                            "multilingual NMT (MNMT) BIBREF19"
+                        ],
+                        "traditional transfer learning, pivot-based method and multilingual NMT"
+                    ],
+                    [
+                        [
+                            "pivoting, pivoting$_{\\rm m}$",
+                            "firstly translates a source language into the pivot language which is later translated to the target language"
+                        ],
+                        "the Transformer-big model with 1024 embedding/hidden units, 4096 feed-forward filter size"
+                    ],
+                    [
+                        [
+                            "Europarl, MultiUN",
+                            "Europarl BIBREF31, MultiUN BIBREF32"
+                        ],
+                        "Europarl, MultiUN"
+                    ],
+                    [
+                        [
+                            "De-En, En-Fr, Fr-En, En-Es, Ro-En, En-De, Ar-En, En-Ru",
+                            "French-English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De), Arabic (Ar), Spanish (Es), and Russian (Ru), and mutual translation between themselves constitutes six zero-shot translation"
+                        ],
+                        "English-Spanish (Fr-En-Es), German-English-French (De-En-Fr) and Romanian-English-German (Ro-En-De)"
+                    ],
+                    [
+                        [
+                            "Stanford NER, spaCy 2.0 , recurrent model with a CRF top layer",
+                            "Stanford NER, spaCy 2.0, recurrent model with a CRF top layer"
+                        ],
+                        "Stanford NER, spaCy 2.0, Char-LSTM+biLSTM"
+                    ],
+                    [
+                        [
+                            "ilur.am",
+                            "links between Wikipedia articles to generate sequences of named-entity annotated tokens"
+                        ],
+                        "in the training corpus only the first mention of each entity is linked, this approach becomes very restrictive and in order to include more sentences, additional links are inferred"
+                    ],
+                    [
+                        [
+                            "No",
+                            "No"
+                        ],
+                        "No"
+                    ],
+                    [
+                        [
+                            "politics, business, science, and AskReddit, and 1000 additional posts from the Reddit frontpage. ",
+                            "training data has posts from politics, business, science and other popular topics; the trained model is applied to millions of unannotated posts on all of Reddit"
+                        ],
+                        "politics, business, science, and AskReddit"
+                    ],
+                    [
+                        [
+                            "logistic regression models",
+                            "logistic regression models based on unigram bag-of-words features (BOW), sentiment signals (SENT), the linguistic features from our earlier analyses (LING), and combinations of these features."
+                        ],
+                        "linear regression"
+                    ],
+                    [
+                        [
+                            "F1 scores of 85.99 on the DL-PS data,  75.15 on the EC-MT data and 71.53 on the EC-UQ data ",
+                            "F1 of 85.99 on the DL-PS dataset (dialog domain); 75.15 on EC-MT and 71.53 on EC-UQ (e-commerce domain)"
+                        ],
+                        "Combined F1 score of 66.89 on the DL-PS and 66.95 on the EC-UQ datasets."
+                    ]
+                ],
+                "table_entries": {
+                    "QASPER Answer F1": 0.3122281476131571,
+                    "QASPER Evidence F1": 0.33117734204929805,
+                    "QASPER R1": 0.32423903408961663,
+                    "QASPER R2": 0.12350316741519916,
+                    "QASPER RL": 0.31218414756657403
+                }
+            }
+        ]
+    ],
+    "best_num_steps": 5510,
+    "test_result": {
+        "answer_f1": 0.35736277368440744,
+        "answer_f1_by_type": {
+            "extractive": 0.3383445148890139,
+            "abstractive": 0.1540746613419555,
+            "boolean": 0.6395979020979021,
+            "none": 0.5352112676056338
+        },
+        "evidence_f1": 0.4163337428504717,
+        "num_missing_predictions": 0,
+        "multi_mean_rouge_1": 0.27260873639770505,
+        "multi_mean_rouge_2": 0.0890173284857957,
+        "multi_mean_rouge_l": 0.2622884099573375,
+        "multi_max_rouge_1": 0.3673177691230268,
+        "multi_max_rouge_2": 0.13381463523390943,
+        "multi_max_rouge_l": 0.35390798689053454,
+        "samples": [
+            [
+                [
+                    " 3,044 sentences in 100 dialogs",
+                    "220 human-human dialogs",
+                    "220 human-human dialogs. , 3,044 sentences in 100 dialogs",
+                    "220 human-human dialogs. The average conversation length is 12.45 turns and the average utterance length is 11.13 words. ",
+                    "220 human-human dialogs",
+                    "3,044 sentences in 100 dialogs"
+                ],
+                "1,017 dialogs"
+            ],
+            [
+                [
+                    "using a role-playing task on the Amazon Mechanical Turk platform and collecting typed conversations",
+                    "Separate on-task and off task intents and annotate on task for data set specific intents, while annotating  off task intents with a fixed set of general intents.",
+                    "On-task dialog are annotated as on-task intents , the other dialog are annotated as pre-defined off-task intents.",
+                    "separate on-task and off-task intents, on-task intents are key actions that can vary among different tasks, we need to specifically define on-task intents for each task, off-task content is too general to design task-specific intents, we choose common dialog acts as the categories",
+                    "we design a hierarchical intent annotation scheme for non-collaborative tasks. We first separate on-task and off-task intents. As on-task intents are key actions that can vary among different tasks, we need to specifically define on-task intents for each task. On the other hand, since off-task content is too general to design task-specific intents, we choose common dialog acts as the categories. , In the intent annotation scheme shown in Table TABREF2, we list the designed intent annotation scheme for the newly collected AntiScam dataset and the PersuasionForGood dataset. We first define on-task intents for the datasets, which are key actions in the task. Since our AntiScam focuses on understanding and reacting towards elicitations, we define elicitation, providing_information and refusal as on-task intents. In the PersuasionForGood dataset, we define nine on-task intents in Table TABREF2 based on the original PersuasionForGood dialog act annotation scheme, For specific tasks, we also design a semantic slot annotation scheme for annotating sentences based on their semantic content. We identify 13 main semantic slots in the anti-scam task, for example, credit card numbers. We present a detailed semantic slot annotation in Table TABREF3. Following BIBREF1, we segment each conversation turn into single sentences and then annotate each sentence rather than turns.",
+                    "using a hierarchical scheme where on-task intents uses task-related intents for representation and off-task intents chooses dialog acts that convey the syntax information"
+                ],
+                "The intent classifier and semantic slot classifier for human utterances and system responses are jointly annotated."
+            ],
+            [
+                [
+                    "TransferTransfo and Hybrid ",
+                    "TransferTransfo,  hybrid model",
+                    "TransferTransfo, Hybrid",
+                    "TransferTransfo, Hybrid",
+                    "TransferTransfo The vanilla TransferTransfo framework, Hybrid Following BIBREF4 yu2017learning, we also build a hybrid dialog system by combining vanilla TransferTransfo and MISSA",
+                    "TransferTransfo, Hybrid"
+                ],
+                "TransferTransfo, TransferTransfo"
+            ],
+            [
+                [
+                    "Perplexity, Response-Intent Prediction (RIP), Response-Slot Prediction (RSP), Extended Response-Intent Prediction (ERIP) , Extended Response-Slot Prediction (ERSP) , Fluency, Coherence , Engagement, Dialog length , Task Success Score (TaskSuc)",
+                    "Perplexity , Response-Intent Prediction (RIP), Response-Slot Prediction (RSP), Extended Response-Intent Prediction (ERIP), Extended Response-Slot Prediction (ERSP), Fluency , Coherence , Engagement , Dialog length (Length) , Task Success Score (TaskSuc)",
+                    "Fluency Fluency is used to explore different models' language generation quality.\n\nCoherence Different from single sentence's fluency, coherence focuses more on the logical consistency between sentences in each turn.\n\nEngagement In the anti-scam scenario, one of our missions is to keep engaging with the attackers to waste their time. So we directly ask volunteers (attackers) to what extend they would like to continue chatting with the system.\n\nDialog length (Length) Engagement is a subjective metric. Anti-scam system's goal is to engage user in the conversation longer in order to limit their harm to other potential victims. So we count the dialog length as another metric to evaluate system performance.\n\nTask Success Score (TaskSuc) The other goal of the anti-scam system is to elicit attacker's personal information. We count the average type of information (name, address and phone number) that the system obtained from attackers as the task success score.",
+                    "Automatic evaluation metrics (Perplexity (PPl), Response-Intent Prediction (RIP), Response-Slot Prediction(RSP), Extended Response-Intent Prediction(ERIP),  Extended Response-Slot Prediction (ERSP)) and Human Evaluation Metrics (Fluency, Coherence, Engagement, Lenhth, TaskSuc)",
+                    "Automatic metrics used: Perplexity, RIP, RSP, ERIP ERSP.\nHuman evaluation metrics used: Fluency, Coherence, Engagement, Dialog length and Task Success Score."
+                ],
+                "Fluency Fluency, Engagement, Dialog length, Task Success Score"
+            ],
+            [
+                [
+                    "Unanswerable",
+                    "The model improves the state of the art performance for the ISTEX dataset (F1 micro: 0.870, F1 macro: 0.858) and for the Microposts 2016 dataset (F1 micro:  0.087).",
+                    "The micro and macro f1-scores of this model are 0.482 and 0.399 on the AIDA-CoNLL dataset, 0.087 and 0.515 on the Microposts 2016 dataset, 0.870 and 0.858 on the ISTEX-1000 dataset, 0.335 and 0.310 on the RSS-500 dataset",
+                    "The accuracy ",
+                    "Unanswerable"
+                ],
+                "2.7 accuracy points"
+            ],
+            [
+                [
+                    "two state-of-the-art early rumour detection baselines Liu et. al (2015) and Yang et. al (2012), which we re-implemented., Yang et. al (2012), dubbed Yang, because they proposed a feature set for early detection tailored to Sina Weibo and were used as a state-of-the-art baseline before by Liu et. al (2015). The algorithm by Liu et. al (2015), dubbed Liu, is said to operate in real-time and outperformed Yang, when only considering features available on Twitter.",
+                    "Liu et. al (2015), Yang et. al (2012)",
+                    "They compare against two other methods that apply message-,user-, topic- and propagation-based features and rely on an SVM classifier. One perform early rumor detection and operates with a delay of 24 hrs, while the other requires a cluster of 5 repeated messages to judge them for rumors.",
+                    "Liu et. al (2015) , Yang et. al (2012)",
+                    "Liu et al. (2015) and Yang et al. (2012)"
+                ],
+                "Castillo et. al. 2011; Liu et. al, 2011; Qazvinian et. al, 2011; Yang et. al, 2012; Zhao et. al, 2015)"
+            ],
+            [
+                [
+                    "accuracy to evaluate effectiveness, Detection Error Trade-off (DET) curves, which show the trade-off between miss and false alarm probability, throughput per second",
+                    "The metrics are accuracy, detection error trade-off curves and computing efficiency",
+                    "accuracy , Detection Error Trade-off (DET) curves, efficiency of computing the proposed features, measured by the throughput per second",
+                    "accuracy to evaluate effectiveness, Detection Error Trade-off (DET) curves, which show the trade-off between miss and false alarm probability, throughput per second",
+                    "Accuracy compared to two state-of-the-art baselines"
+                ],
+                " accuracy"
+            ],
+            [
+                [
+                    "No. They additionally use similarity to previously detected rumors to make the decision of whether a document is likely to be a rumor"
+                ],
+                "Both methods apply various message-, user-, topic- and propagation-based features and rely on an SVM classifier which they also found to perform best. The approaches advertise themselves as suitable for early or real-time detection and performed rumour detection with the smallest latency across all published methods. Yang performs early rumour detection and operates with a delay of 24 hours. Liu et. al (2015) report performance based on the first 5 messages which clearly outperforms Yang for early rumour detection"
+            ],
+            [
+                [
+                    "Yes",
+                    "Yes",
+                    "Yes",
+                    "Yes, consisting of trusted resources, rumours and non-rumours",
+                    "Yes"
+                ],
+                "Yes"
+            ],
+            [
+                [
+                    "Chinese",
+                    "Mandarin Chinese",
+                    "Chinese",
+                    "Mandarin Chinese (see table 3)",
+                    "Chinese"
+                ],
+                "Chinese"
+            ]
+        ],
+        "table_entries": {
+            "QASPER Answer F1": 0.35736277368440744,
+            "QASPER Evidence F1": 0.4163337428504717,
+            "QASPER R1": 0.3673177691230268,
+            "QASPER R2": 0.13381463523390943,
+            "QASPER RL": 0.35390798689053454
+        }
+    },
+    "total_time": 44297.237624406815
+}

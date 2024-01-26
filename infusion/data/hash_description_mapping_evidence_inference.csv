@@ -1,0 +1,31 @@
+F1000 Probing Dirname,Pretraining Hash,Finetuning Hash,Test Hash,Description,Pretrained
+037_F1000_pretrained_LED_vanilla-701c-1388,d276-f262,a582-aa23,ef76-f901,vanilla,TRUE
+037_F1000_pretrained_LED_vanilla-701c-1388,d276-f262,8af3-4c81,3cd1-98b4,vanilla,TRUE
+037_F1000_pretrained_LED_vanilla-701c-1388,d276-f262,925c-5932,4e35-3f53,vanilla,TRUE
+045_F1000_pretrained_LED_is-node-boundaries_probe_struct-f6da-ae8c,ff0b-a193,7b42-3fa2,0340-6b31,tok-sep,TRUE
+045_F1000_pretrained_LED_is-node-boundaries_probe_struct-f6da-ae8c,ff0b-a193,b1d6-47bd,01cb-5835,tok-sep,TRUE
+045_F1000_pretrained_LED_is-node-boundaries_probe_struct-f6da-ae8c,ff0b-a193,d834-7182,eb23-2862,tok-sep,TRUE
+046_F1000_pretrained_LED_is-node-depths_probe_struct-f56f-5dfe,1897-9ebd,974c-33cf,608a-9a1e,tok-depth,TRUE
+046_F1000_pretrained_LED_is-node-depths_probe_struct-f56f-5dfe,1897-9ebd,691c-63f7,b44d-fa2a,tok-depth,TRUE
+046_F1000_pretrained_LED_is-node-depths_probe_struct-f56f-5dfe,1897-9ebd,55c8-1116,b4fc-1614,tok-depth,TRUE
+047_F1000_pretrained_LED_is-node-types_probe_struct-040a-daf9,57cc-df3d,a6f7-e6f0,13fd-277e,tok-type,TRUE
+047_F1000_pretrained_LED_is-node-types_probe_struct-040a-daf9,57cc-df3d,d4c7-52f6,aee1-f856,tok-type,TRUE
+047_F1000_pretrained_LED_is-node-types_probe_struct-040a-daf9,57cc-df3d,857e-ed71,3537-1974,tok-type,TRUE
+041_F1000_pretrained_LED_pe-node-depths-adb0-6d4a,a66e-6cb3,ec16-d449,8c5d-84ba,emb-depth,TRUE
+041_F1000_pretrained_LED_pe-node-depths-adb0-6d4a,a66e-6cb3,8ae9-2cb3,13b8-7c33,emb-depth,TRUE
+041_F1000_pretrained_LED_pe-node-depths-adb0-6d4a,a66e-6cb3,0741-9265,916a-2fcc,emb-depth,TRUE
+042_F1000_pretrained_LED_pe-node-types-a9d5-7af4,51fe-5bb0,c437-4230,f45d-7bb7,emb-type,TRUE
+042_F1000_pretrained_LED_pe-node-types-a9d5-7af4,51fe-5bb0,5ee3-4699,5ed7-9123,emb-type,TRUE
+042_F1000_pretrained_LED_pe-node-types-a9d5-7af4,51fe-5bb0,df9f-59e0,182a-3231,emb-type,TRUE
+048_F1000_pretrained_LED_pe-node-depths-is-node-types_probe_struct-a73b-bd0b,b44b-1d99,6652-7a2d,2acf-e383,emb-depth-tok-type,TRUE
+048_F1000_pretrained_LED_pe-node-depths-is-node-types_probe_struct-a73b-bd0b,b44b-1d99,6550-3399,0755-c5db,emb-depth-tok-type,TRUE
+048_F1000_pretrained_LED_pe-node-depths-is-node-types_probe_struct-a73b-bd0b,b44b-1d99,973c-bf96,60a2-fd8d,emb-depth-tok-type,TRUE
+049_F1000_pretrained_LED_pe-node-types-is-node-types_probe_struct-f298-6e7c,1816-e0b1,ee43-9527,7e09-5a6d,emb-type-tok-type,TRUE
+049_F1000_pretrained_LED_pe-node-types-is-node-types_probe_struct-f298-6e7c,1816-e0b1,e550-3e6a,c1b6-4338,emb-type-tok-type,TRUE
+049_F1000_pretrained_LED_pe-node-types-is-node-types_probe_struct-f298-6e7c,1816-e0b1,2830-74de,252e-04bf,emb-type-tok-type,TRUE
+049_F1000_pretrained_LED_pe-node-types-is-node-depths_probe_struct-9000-7949,946a-18f8,0bac-41cf,0bac-41cf,emb-type-tok-depth,TRUE
+049_F1000_pretrained_LED_pe-node-types-is-node-depths_probe_struct-9000-7949,946a-18f8,f8ec-f58f,f8ec-f58f,emb-type-tok-depth,TRUE
+049_F1000_pretrained_LED_pe-node-types-is-node-depths_probe_struct-9000-7949,946a-18f8,3476-cc9f,3476-cc9f,emb-type-tok-depth,TRUE
+050_F1000_pretrained_LED_pe-node-depths-is-node-depths_probe_struct-d38b-c0a4 ,f9f2-f37f,df56-c154,df56-c154,emb-depth-tok-depth,TRUE
+050_F1000_pretrained_LED_pe-node-depths-is-node-depths_probe_struct-d38b-c0a4 ,f9f2-f37f,6dba-cc2d,6dba-cc2d,emb-depth-tok-depth,TRUE
+050_F1000_pretrained_LED_pe-node-depths-is-node-depths_probe_struct-d38b-c0a4 ,f9f2-f37f,b56d-77a8,b56d-77a8,emb-depth-tok-depth,TRUE

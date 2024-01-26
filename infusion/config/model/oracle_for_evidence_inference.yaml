@@ -1,0 +1,11 @@
+model_name: "Oracle (ground truth)"
+task_name: "Evidence Inference"
+
+# TRAINING PARAMETERS
+max_steps: 10200
+min_steps: 10200
+val_check_interval: 4000  # seen instances, not steps!
+
+batch_size: 1
+accumulate_grad_batches: 8
+learning_rate: 0.00001

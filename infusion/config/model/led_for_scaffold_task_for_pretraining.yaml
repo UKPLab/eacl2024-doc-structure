@@ -1,0 +1,26 @@
+model_name: "LED"
+task_name: "Scaffold Task For Pretraining"
+
+# MODEL PARAMETERS
+num_beams: 4
+do_sample: False
+length_penalty: 1
+max_length: 100
+
+# T5 masking parameters
+do_denoising_pretraining: True
+mean_noise_span_length: 5
+dynamic_noise_span_length: True
+noise_density: 0.03
+denoising_loss_weight: 0.5
+target_length:
+
+# TRAINING PARAMETERS
+max_steps: 10200
+min_steps: 10200
+val_check_interval: 4000  # seen instances, not steps!
+
+batch_size: 1
+accumulate_grad_batches: 8
+learning_rate: 0.00001
+warmup_steps: 500

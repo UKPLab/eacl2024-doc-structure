@@ -1,0 +1,6 @@
+datasets: data/datasets
+models: data/models
+tensorboard: data/tensorboard
+results: data/results
+pytorch_lightning: data/pytorch_lightning
+predictions: data/predictions

@@ -1,0 +1,1258 @@
+{
+    "model_name": "LongT5",
+    "task_name": "Evidence Inference",
+    "description": "pe-node-depths-is-node-types_5ed0-308d_pe_init_4-875",
+    "config": {
+        "slurm_job_id": 117527,
+        "description": "pe-node-depths-is-node-types_5ed0-308d_pe_init_4-875",
+        "remote_debug": false,
+        "do_train": true,
+        "use_dev_as_test_data": false,
+        "load_model": true,
+        "load_strict": false,
+        "hash_to_load": "5ed0-308d",
+        "save_predictions": true,
+        "max_input_length": 8192,
+        "max_output_length": null,
+        "max_depth": 20,
+        "node_types": [
+            "article-title",
+            "abstract",
+            "title",
+            "p"
+        ],
+        "input_sequence": {
+            "mode": "text_with_node_types",
+            "replace_newlines": false,
+            "do_close": false,
+            "node_separator": " ",
+            "include_node_types": [
+                "article-title",
+                "abstract",
+                "title",
+                "p"
+            ],
+            "use_core_node_types_only": true,
+            "use_bos_eos_token": false,
+            "bos_token": null,
+            "eos_token": null
+        },
+        "position_embeddings": {
+            "mode": "node_depths",
+            "init_std": 0.0305,
+            "max_norm": 0.001
+        },
+        "post_encoder_position_embeddings": {
+            "mode": "vanilla",
+            "init_std": 0.0305
+        },
+        "attention": {
+            "mode": "vanilla"
+        },
+        "scaffold_tasks": {
+            "mode": "vanilla",
+            "token_chance": 0.05,
+            "on_task_data": true,
+            "scaffold_weight": 0.3,
+            "on_s2orc_itg_subset": false,
+            "num_docs_per_shard": 200,
+            "instances_ratio": 0.3
+        },
+        "fast_dev_run": false,
+        "accelerator": "gpu",
+        "precision": 32,
+        "dataloader_num_workers": 7,
+        "gradient_checkpointing": false,
+        "use_cache": true,
+        "num_sanity_val_steps": 0,
+        "log_every_n_steps": 50,
+        "random": {
+            "seed": 635191,
+            "deterministic_trainer": false
+        },
+        "task": {
+            "task_name": "Evidence Inference",
+            "deep_or_shallow": "deep"
+        },
+        "model": {
+            "model_name": "LongT5",
+            "task_name": "Evidence Inference",
+            "num_beams": 4,
+            "do_sample": false,
+            "length_penalty": -1,
+            "max_length": 3,
+            "evidence": {
+                "learn_evidence_detection": true,
+                "evidence_detection_weight": 0.75,
+                "use_evidence_loss_weights": false,
+                "relevant_node_types": [
+                    "p"
+                ]
+            },
+            "max_steps": 10200,
+            "min_steps": 10200,
+            "val_check_interval": 4000,
+            "batch_size": 1,
+            "accumulate_grad_batches": 8,
+            "learning_rate": 0.0001
+        }
+    },
+    "hash": "60cb-0b72",
+    "stats": {
+        "task-initialization.deep-or-shallow": "deep",
+        "task-initialization.num-train-documents": 3562,
+        "task-initialization.num-dev-documents": 443,
+        "task-initialization.num-test-documents": 449,
+        "task-initialization.prompt-has-no-annotations": 258,
+        "task-initialization.annotation-has-empty-evidence-text": 0,
+        "task-initialization.annotation-has-no-evidence-node": 971,
+        "task-initialization.annotation-has-more-than-one-evidence-node": 1027,
+        "task-initialization.num-train-instances": 18545,
+        "task-initialization.num-dev-instances": 1232,
+        "task-initialization.num-test-instances": 1218,
+        "task-initialization.label-statistics": {
+            "-1": 4429,
+            "0": 8525,
+            "1": 5591
+        },
+        "task-initialization.evidence-statistics": {
+            "0": 1265402,
+            "1": 18861
+        }
+    },
+    "results_by_step": [
+        [
+            500,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "TN": 841,
+                        "FN": 140,
+                        "TP": 159,
+                        "FP": 92
+                    },
+                    "no significant difference": {
+                        "TP": 453,
+                        "FP": 222,
+                        "TN": 466,
+                        "FN": 91
+                    },
+                    "significantly increased": {
+                        "TN": 733,
+                        "FN": 193,
+                        "TP": 196,
+                        "FP": 110
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.6334661354581673,
+                    "no significant difference": 0.6711111111111111,
+                    "significantly increased": 0.6405228758169934
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.5317725752508361,
+                    "no significant difference": 0.8327205882352942,
+                    "significantly increased": 0.5038560411311054
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.5781818181818181,
+                    "no significant difference": 0.7432321575061526,
+                    "significantly increased": 0.5640287769784171
+                },
+                "classification_macro_f1_score": 0.6284809175554625,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84716,
+                    "FN": 792,
+                    "TP": 402,
+                    "FP": 169
+                },
+                "evidence_detection_precision": 0.7040280210157618,
+                "evidence_detection_recall": 0.33668341708542715,
+                "evidence_detection_f1_score": 0.4555240793201133,
+                "table_entries": {
+                    "EvI Classification F1": 0.6284809175554625,
+                    "EvI Evidence F1": 0.4555240793201133
+                }
+            }
+        ],
+        [
+            1000,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 62,
+                        "TN": 871,
+                        "TP": 182,
+                        "FN": 117
+                    },
+                    "no significant difference": {
+                        "FN": 105,
+                        "FP": 102,
+                        "TP": 438,
+                        "TN": 587
+                    },
+                    "significantly increased": {
+                        "TN": 703,
+                        "FN": 81,
+                        "FP": 139,
+                        "TP": 309
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7459016393442623,
+                    "no significant difference": 0.8111111111111111,
+                    "significantly increased": 0.6897321428571429
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.6086956521739131,
+                    "no significant difference": 0.8066298342541437,
+                    "significantly increased": 0.7923076923076923
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.6703499079189688,
+                    "no significant difference": 0.8088642659279778,
+                    "significantly increased": 0.7374701670644391
+                },
+                "classification_macro_f1_score": 0.7388947803037952,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84483,
+                    "FP": 392,
+                    "FN": 429,
+                    "TP": 775
+                },
+                "evidence_detection_precision": 0.6640959725792631,
+                "evidence_detection_recall": 0.643687707641196,
+                "evidence_detection_f1_score": 0.65373260227752,
+                "table_entries": {
+                    "EvI Classification F1": 0.7388947803037952,
+                    "EvI Evidence F1": 0.65373260227752
+                }
+            }
+        ],
+        [
+            1500,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 101,
+                        "TN": 832,
+                        "TP": 222,
+                        "FN": 77
+                    },
+                    "no significant difference": {
+                        "FN": 131,
+                        "TN": 636,
+                        "TP": 412,
+                        "FP": 53
+                    },
+                    "significantly increased": {
+                        "TN": 714,
+                        "TP": 316,
+                        "FP": 128,
+                        "FN": 74
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.6873065015479877,
+                    "no significant difference": 0.886021505376344,
+                    "significantly increased": 0.7117117117117117
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7424749163879598,
+                    "no significant difference": 0.7587476979742173,
+                    "significantly increased": 0.8102564102564103
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7138263665594855,
+                    "no significant difference": 0.8174603174603173,
+                    "significantly increased": 0.7577937649880095
+                },
+                "classification_macro_f1_score": 0.7630268163359375,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84587,
+                    "FN": 368,
+                    "TP": 841,
+                    "FP": 283
+                },
+                "evidence_detection_precision": 0.748220640569395,
+                "evidence_detection_recall": 0.695616211745244,
+                "evidence_detection_f1_score": 0.7209601371624519,
+                "table_entries": {
+                    "EvI Classification F1": 0.7630268163359375,
+                    "EvI Evidence F1": 0.7209601371624519
+                }
+            }
+        ],
+        [
+            2000,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 68,
+                        "TN": 865,
+                        "TP": 209,
+                        "FN": 90
+                    },
+                    "no significant difference": {
+                        "FN": 91,
+                        "FP": 88,
+                        "TP": 452,
+                        "TN": 601
+                    },
+                    "significantly increased": {
+                        "TN": 737,
+                        "FN": 80,
+                        "TP": 310,
+                        "FP": 105
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7545126353790613,
+                    "no significant difference": 0.837037037037037,
+                    "significantly increased": 0.7469879518072289
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.6989966555183946,
+                    "no significant difference": 0.8324125230202578,
+                    "significantly increased": 0.7948717948717948
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7256944444444444,
+                    "no significant difference": 0.8347183748845798,
+                    "significantly increased": 0.7701863354037267
+                },
+                "classification_macro_f1_score": 0.776866384910917,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84598,
+                    "FN": 349,
+                    "TP": 856,
+                    "FP": 276
+                },
+                "evidence_detection_precision": 0.7561837455830389,
+                "evidence_detection_recall": 0.7103734439834025,
+                "evidence_detection_f1_score": 0.7325631151048352,
+                "table_entries": {
+                    "EvI Classification F1": 0.776866384910917,
+                    "EvI Evidence F1": 0.7325631151048352
+                }
+            }
+        ],
+        [
+            2500,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 71,
+                        "TN": 862,
+                        "TP": 214,
+                        "FN": 85
+                    },
+                    "no significant difference": {
+                        "FN": 108,
+                        "TN": 623,
+                        "TP": 435,
+                        "FP": 66
+                    },
+                    "significantly increased": {
+                        "TN": 720,
+                        "TP": 324,
+                        "FP": 122,
+                        "FN": 66
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7508771929824561,
+                    "no significant difference": 0.8682634730538922,
+                    "significantly increased": 0.726457399103139
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7157190635451505,
+                    "no significant difference": 0.8011049723756906,
+                    "significantly increased": 0.8307692307692308
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7328767123287669,
+                    "no significant difference": 0.8333333333333333,
+                    "significantly increased": 0.7751196172248804
+                },
+                "classification_macro_f1_score": 0.780443220962327,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84659,
+                    "FN": 392,
+                    "FP": 218,
+                    "TP": 810
+                },
+                "evidence_detection_precision": 0.7879377431906615,
+                "evidence_detection_recall": 0.6738768718801996,
+                "evidence_detection_f1_score": 0.726457399103139,
+                "table_entries": {
+                    "EvI Classification F1": 0.780443220962327,
+                    "EvI Evidence F1": 0.726457399103139
+                }
+            }
+        ],
+        [
+            3000,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 158,
+                        "TN": 775,
+                        "TP": 246,
+                        "FN": 53
+                    },
+                    "no significant difference": {
+                        "FN": 178,
+                        "TN": 666,
+                        "TP": 365,
+                        "FP": 23
+                    },
+                    "significantly increased": {
+                        "TN": 715,
+                        "TP": 313,
+                        "FP": 127,
+                        "FN": 77
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.6089108910891089,
+                    "no significant difference": 0.9407216494845361,
+                    "significantly increased": 0.7113636363636363
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.822742474916388,
+                    "no significant difference": 0.6721915285451197,
+                    "significantly increased": 0.8025641025641026
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.6998577524893315,
+                    "no significant difference": 0.7841031149301826,
+                    "significantly increased": 0.7542168674698795
+                },
+                "classification_macro_f1_score": 0.7460592449631313,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84605,
+                    "FP": 271,
+                    "FN": 367,
+                    "TP": 836
+                },
+                "evidence_detection_precision": 0.7551942186088527,
+                "evidence_detection_recall": 0.6949293433083957,
+                "evidence_detection_f1_score": 0.7238095238095238,
+                "table_entries": {
+                    "EvI Classification F1": 0.7460592449631313,
+                    "EvI Evidence F1": 0.7238095238095238
+                }
+            }
+        ],
+        [
+            3500,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 55,
+                        "TN": 878,
+                        "TP": 204,
+                        "FN": 95
+                    },
+                    "no significant difference": {
+                        "FN": 84,
+                        "TN": 602,
+                        "TP": 460,
+                        "FP": 86
+                    },
+                    "significantly increased": {
+                        "TN": 727,
+                        "TP": 311,
+                        "FP": 116,
+                        "FN": 78
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7876447876447876,
+                    "no significant difference": 0.8424908424908425,
+                    "significantly increased": 0.7283372365339579
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.6822742474916388,
+                    "no significant difference": 0.8455882352941176,
+                    "significantly increased": 0.7994858611825193
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7311827956989247,
+                    "no significant difference": 0.8440366972477065,
+                    "significantly increased": 0.7622549019607843
+                },
+                "classification_macro_f1_score": 0.7791581316358052,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84698,
+                    "FP": 174,
+                    "FN": 417,
+                    "TP": 790
+                },
+                "evidence_detection_precision": 0.8195020746887967,
+                "evidence_detection_recall": 0.6545153272576636,
+                "evidence_detection_f1_score": 0.7277752187931829,
+                "table_entries": {
+                    "EvI Classification F1": 0.7791581316358052,
+                    "EvI Evidence F1": 0.7277752187931829
+                }
+            }
+        ],
+        [
+            4000,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 77,
+                        "TN": 856,
+                        "TP": 230,
+                        "FN": 69
+                    },
+                    "no significant difference": {
+                        "FN": 83,
+                        "TN": 614,
+                        "TP": 460,
+                        "FP": 75
+                    },
+                    "significantly increased": {
+                        "TN": 760,
+                        "TP": 308,
+                        "FP": 82,
+                        "FN": 82
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.749185667752443,
+                    "no significant difference": 0.8598130841121495,
+                    "significantly increased": 0.7897435897435897
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7692307692307693,
+                    "no significant difference": 0.8471454880294659,
+                    "significantly increased": 0.7897435897435897
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.759075907590759,
+                    "no significant difference": 0.8534322820037106,
+                    "significantly increased": 0.7897435897435896
+                },
+                "classification_macro_f1_score": 0.8007505931126864,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84594,
+                    "FP": 277,
+                    "FN": 338,
+                    "TP": 870
+                },
+                "evidence_detection_precision": 0.7585004359197908,
+                "evidence_detection_recall": 0.7201986754966887,
+                "evidence_detection_f1_score": 0.7388535031847134,
+                "table_entries": {
+                    "EvI Classification F1": 0.8007505931126864,
+                    "EvI Evidence F1": 0.7388535031847134
+                }
+            }
+        ],
+        [
+            4500,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 71,
+                        "TN": 862,
+                        "TP": 220,
+                        "FN": 79
+                    },
+                    "no significant difference": {
+                        "FN": 90,
+                        "TN": 624,
+                        "TP": 453,
+                        "FP": 65
+                    },
+                    "significantly increased": {
+                        "TN": 739,
+                        "TP": 320,
+                        "FP": 103,
+                        "FN": 70
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7560137457044673,
+                    "no significant difference": 0.8745173745173745,
+                    "significantly increased": 0.7565011820330969
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7357859531772575,
+                    "no significant difference": 0.8342541436464088,
+                    "significantly increased": 0.8205128205128205
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7457627118644067,
+                    "no significant difference": 0.8539114043355325,
+                    "significantly increased": 0.7872078720787207
+                },
+                "classification_macro_f1_score": 0.79562732942622,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84663,
+                    "FP": 208,
+                    "FN": 352,
+                    "TP": 856
+                },
+                "evidence_detection_precision": 0.8045112781954887,
+                "evidence_detection_recall": 0.7086092715231788,
+                "evidence_detection_f1_score": 0.7535211267605633,
+                "table_entries": {
+                    "EvI Classification F1": 0.79562732942622,
+                    "EvI Evidence F1": 0.7535211267605633
+                }
+            }
+        ],
+        [
+            5001,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 48,
+                        "TN": 885,
+                        "TP": 203,
+                        "FN": 96
+                    },
+                    "no significant difference": {
+                        "FN": 87,
+                        "TN": 617,
+                        "FP": 72,
+                        "TP": 456
+                    },
+                    "significantly increased": {
+                        "TN": 723,
+                        "TP": 334,
+                        "FP": 119,
+                        "FN": 56
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.8087649402390438,
+                    "no significant difference": 0.8636363636363636,
+                    "significantly increased": 0.7373068432671082
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.6789297658862876,
+                    "no significant difference": 0.8397790055248618,
+                    "significantly increased": 0.8564102564102564
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7381818181818182,
+                    "no significant difference": 0.8515406162464987,
+                    "significantly increased": 0.7924080664294189
+                },
+                "classification_macro_f1_score": 0.794043500285912,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84533,
+                    "FP": 333,
+                    "FN": 276,
+                    "TP": 937
+                },
+                "evidence_detection_precision": 0.7377952755905511,
+                "evidence_detection_recall": 0.7724649629018961,
+                "evidence_detection_f1_score": 0.7547321788159485,
+                "table_entries": {
+                    "EvI Classification F1": 0.794043500285912,
+                    "EvI Evidence F1": 0.7547321788159485
+                }
+            }
+        ],
+        [
+            5501,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 73,
+                        "TN": 860,
+                        "TP": 231,
+                        "FN": 68
+                    },
+                    "no significant difference": {
+                        "FN": 76,
+                        "TN": 607,
+                        "TP": 467,
+                        "FP": 82
+                    },
+                    "significantly increased": {
+                        "TN": 766,
+                        "TP": 303,
+                        "FP": 76,
+                        "FN": 87
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7598684210526315,
+                    "no significant difference": 0.8506375227686703,
+                    "significantly increased": 0.7994722955145118
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7725752508361204,
+                    "no significant difference": 0.860036832412523,
+                    "significantly increased": 0.7769230769230769
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7661691542288558,
+                    "no significant difference": 0.8553113553113554,
+                    "significantly increased": 0.7880364109232769
+                },
+                "classification_macro_f1_score": 0.8031723068211627,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84645,
+                    "FN": 337,
+                    "FP": 228,
+                    "TP": 869
+                },
+                "evidence_detection_precision": 0.7921604375569735,
+                "evidence_detection_recall": 0.7205638474295191,
+                "evidence_detection_f1_score": 0.7546678245766391,
+                "table_entries": {
+                    "EvI Classification F1": 0.8031723068211627,
+                    "EvI Evidence F1": 0.7546678245766391
+                }
+            }
+        ],
+        [
+            6001,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 76,
+                        "TN": 857,
+                        "TP": 228,
+                        "FN": 71
+                    },
+                    "no significant difference": {
+                        "FN": 112,
+                        "TN": 642,
+                        "TP": 431,
+                        "FP": 47
+                    },
+                    "significantly increased": {
+                        "TN": 724,
+                        "TP": 332,
+                        "FP": 118,
+                        "FN": 58
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.75,
+                    "no significant difference": 0.9016736401673641,
+                    "significantly increased": 0.7377777777777778
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7625418060200669,
+                    "no significant difference": 0.7937384898710865,
+                    "significantly increased": 0.8512820512820513
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7562189054726369,
+                    "no significant difference": 0.8442703232125367,
+                    "significantly increased": 0.7904761904761903
+                },
+                "classification_macro_f1_score": 0.796988473053788,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84644,
+                    "FP": 226,
+                    "FN": 334,
+                    "TP": 875
+                },
+                "evidence_detection_precision": 0.7947320617620345,
+                "evidence_detection_recall": 0.7237386269644334,
+                "evidence_detection_f1_score": 0.7575757575757576,
+                "table_entries": {
+                    "EvI Classification F1": 0.796988473053788,
+                    "EvI Evidence F1": 0.7575757575757576
+                }
+            }
+        ],
+        [
+            6501,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "TN": 864,
+                        "FN": 81,
+                        "TP": 218,
+                        "FP": 69
+                    },
+                    "no significant difference": {
+                        "TP": 458,
+                        "TN": 613,
+                        "FN": 85,
+                        "FP": 76
+                    },
+                    "significantly increased": {
+                        "TN": 743,
+                        "TP": 312,
+                        "FP": 99,
+                        "FN": 78
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.759581881533101,
+                    "no significant difference": 0.8576779026217228,
+                    "significantly increased": 0.7591240875912408
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7290969899665551,
+                    "no significant difference": 0.8434622467771639,
+                    "significantly increased": 0.8
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7440273037542662,
+                    "no significant difference": 0.8505106778087279,
+                    "significantly increased": 0.7790262172284643
+                },
+                "classification_macro_f1_score": 0.7911880662638194,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84460,
+                    "FP": 409,
+                    "FN": 241,
+                    "TP": 969
+                },
+                "evidence_detection_precision": 0.7031930333817126,
+                "evidence_detection_recall": 0.8008264462809918,
+                "evidence_detection_f1_score": 0.7488408037094282,
+                "table_entries": {
+                    "EvI Classification F1": 0.7911880662638194,
+                    "EvI Evidence F1": 0.7488408037094282
+                }
+            }
+        ],
+        [
+            7002,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 99,
+                        "TN": 834,
+                        "TP": 236,
+                        "FN": 63
+                    },
+                    "no significant difference": {
+                        "FN": 140,
+                        "TN": 660,
+                        "TP": 403,
+                        "FP": 29
+                    },
+                    "significantly increased": {
+                        "TN": 709,
+                        "TP": 332,
+                        "FP": 133,
+                        "FN": 58
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7044776119402985,
+                    "no significant difference": 0.9328703703703703,
+                    "significantly increased": 0.7139784946236559
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7892976588628763,
+                    "no significant difference": 0.7421731123388582,
+                    "significantly increased": 0.8512820512820513
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7444794952681387,
+                    "no significant difference": 0.8266666666666665,
+                    "significantly increased": 0.776608187134503
+                },
+                "classification_macro_f1_score": 0.7825847830231027,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84648,
+                    "FP": 223,
+                    "FN": 364,
+                    "TP": 844
+                },
+                "evidence_detection_precision": 0.7910028116213683,
+                "evidence_detection_recall": 0.6986754966887417,
+                "evidence_detection_f1_score": 0.7419780219780221,
+                "table_entries": {
+                    "EvI Classification F1": 0.7825847830231027,
+                    "EvI Evidence F1": 0.7419780219780221
+                }
+            }
+        ],
+        [
+            7502,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 69,
+                        "TN": 864,
+                        "TP": 236,
+                        "FN": 63
+                    },
+                    "no significant difference": {
+                        "FN": 86,
+                        "TN": 618,
+                        "TP": 457,
+                        "FP": 71
+                    },
+                    "significantly increased": {
+                        "TN": 755,
+                        "TP": 312,
+                        "FP": 87,
+                        "FN": 78
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7737704918032787,
+                    "no significant difference": 0.865530303030303,
+                    "significantly increased": 0.7819548872180451
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7892976588628763,
+                    "no significant difference": 0.8416206261510129,
+                    "significantly increased": 0.8
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7814569536423841,
+                    "no significant difference": 0.8534080298786181,
+                    "significantly increased": 0.7908745247148289
+                },
+                "classification_macro_f1_score": 0.8085798360786104,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84650,
+                    "FP": 219,
+                    "FN": 348,
+                    "TP": 862
+                },
+                "evidence_detection_precision": 0.7974098057354302,
+                "evidence_detection_recall": 0.7123966942148761,
+                "evidence_detection_f1_score": 0.7525098210388477,
+                "table_entries": {
+                    "EvI Classification F1": 0.8085798360786104,
+                    "EvI Evidence F1": 0.7525098210388477
+                }
+            }
+        ],
+        [
+            8002,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 63,
+                        "TN": 870,
+                        "TP": 223,
+                        "FN": 76
+                    },
+                    "no significant difference": {
+                        "FN": 73,
+                        "FP": 79,
+                        "TP": 470,
+                        "TN": 610
+                    },
+                    "significantly increased": {
+                        "TN": 754,
+                        "FN": 81,
+                        "TP": 309,
+                        "FP": 88
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7797202797202797,
+                    "no significant difference": 0.8561020036429873,
+                    "significantly increased": 0.7783375314861462
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.745819397993311,
+                    "no significant difference": 0.8655616942909761,
+                    "significantly increased": 0.7923076923076923
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7623931623931623,
+                    "no significant difference": 0.8608058608058607,
+                    "significantly increased": 0.7852604828462516
+                },
+                "classification_macro_f1_score": 0.8028198353484249,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84576,
+                    "FP": 296,
+                    "FN": 276,
+                    "TP": 931
+                },
+                "evidence_detection_precision": 0.758761206193969,
+                "evidence_detection_recall": 0.7713338856669428,
+                "evidence_detection_f1_score": 0.7649958915365652,
+                "table_entries": {
+                    "EvI Classification F1": 0.8028198353484249,
+                    "EvI Evidence F1": 0.7649958915365652
+                }
+            }
+        ],
+        [
+            8502,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 76,
+                        "TN": 857,
+                        "TP": 228,
+                        "FN": 71
+                    },
+                    "no significant difference": {
+                        "FN": 110,
+                        "FP": 41,
+                        "TP": 433,
+                        "TN": 648
+                    },
+                    "significantly increased": {
+                        "TN": 724,
+                        "FN": 54,
+                        "TP": 336,
+                        "FP": 118
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.75,
+                    "no significant difference": 0.9135021097046413,
+                    "significantly increased": 0.7400881057268722
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7625418060200669,
+                    "no significant difference": 0.7974217311233885,
+                    "significantly increased": 0.8615384615384616
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7562189054726369,
+                    "no significant difference": 0.8515240904621435,
+                    "significantly increased": 0.7962085308056872
+                },
+                "classification_macro_f1_score": 0.8013171755801558,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84631,
+                    "FP": 241,
+                    "FN": 320,
+                    "TP": 887
+                },
+                "evidence_detection_precision": 0.7863475177304965,
+                "evidence_detection_recall": 0.7348798674399337,
+                "evidence_detection_f1_score": 0.7597430406852249,
+                "table_entries": {
+                    "EvI Classification F1": 0.8013171755801558,
+                    "EvI Evidence F1": 0.7597430406852249
+                }
+            }
+        ],
+        [
+            9002,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 69,
+                        "TN": 864,
+                        "TP": 214,
+                        "FN": 85
+                    },
+                    "no significant difference": {
+                        "FN": 96,
+                        "TN": 626,
+                        "TP": 448,
+                        "FP": 62
+                    },
+                    "significantly increased": {
+                        "TN": 730,
+                        "TP": 326,
+                        "FP": 113,
+                        "FN": 63
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7561837455830389,
+                    "no significant difference": 0.8784313725490196,
+                    "significantly increased": 0.7425968109339408
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7157190635451505,
+                    "no significant difference": 0.8235294117647058,
+                    "significantly increased": 0.8380462724935732
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7353951890034365,
+                    "no significant difference": 0.8500948766603416,
+                    "significantly increased": 0.7874396135265701
+                },
+                "classification_macro_f1_score": 0.790976559730116,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84591,
+                    "FP": 279,
+                    "FN": 279,
+                    "TP": 930
+                },
+                "evidence_detection_precision": 0.7692307692307693,
+                "evidence_detection_recall": 0.7692307692307693,
+                "evidence_detection_f1_score": 0.7692307692307693,
+                "table_entries": {
+                    "EvI Classification F1": 0.790976559730116,
+                    "EvI Evidence F1": 0.7692307692307693
+                }
+            }
+        ],
+        [
+            9503,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 72,
+                        "TN": 861,
+                        "TP": 232,
+                        "FN": 67
+                    },
+                    "no significant difference": {
+                        "FN": 82,
+                        "TN": 629,
+                        "TP": 462,
+                        "FP": 59
+                    },
+                    "significantly increased": {
+                        "TN": 752,
+                        "TP": 316,
+                        "FP": 91,
+                        "FN": 73
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7631578947368421,
+                    "no significant difference": 0.8867562380038387,
+                    "significantly increased": 0.7764127764127764
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7759197324414716,
+                    "no significant difference": 0.8492647058823529,
+                    "significantly increased": 0.8123393316195373
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7694859038142621,
+                    "no significant difference": 0.8676056338028167,
+                    "significantly increased": 0.7939698492462312
+                },
+                "classification_macro_f1_score": 0.8103537956211033,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84644,
+                    "FP": 222,
+                    "FN": 312,
+                    "TP": 901
+                },
+                "evidence_detection_precision": 0.8023152270703473,
+                "evidence_detection_recall": 0.7427864798021434,
+                "evidence_detection_f1_score": 0.771404109589041,
+                "table_entries": {
+                    "EvI Classification F1": 0.8103537956211033,
+                    "EvI Evidence F1": 0.771404109589041
+                }
+            }
+        ],
+        [
+            10003,
+            {
+                "classification_class_confusion_matrices": {
+                    "significantly decreased": {
+                        "FP": 59,
+                        "TN": 874,
+                        "TP": 213,
+                        "FN": 86
+                    },
+                    "no significant difference": {
+                        "FN": 73,
+                        "TN": 620,
+                        "TP": 471,
+                        "FP": 68
+                    },
+                    "significantly increased": {
+                        "TN": 746,
+                        "TP": 324,
+                        "FP": 97,
+                        "FN": 65
+                    }
+                },
+                "classification_class_precisions": {
+                    "significantly decreased": 0.7830882352941176,
+                    "no significant difference": 0.8738404452690167,
+                    "significantly increased": 0.7695961995249406
+                },
+                "classification_class_recalls": {
+                    "significantly decreased": 0.7123745819397993,
+                    "no significant difference": 0.8658088235294118,
+                    "significantly increased": 0.8329048843187661
+                },
+                "classification_class_f1_scores": {
+                    "significantly decreased": 0.7460595446584939,
+                    "no significant difference": 0.8698060941828255,
+                    "significantly increased": 0.7999999999999999
+                },
+                "classification_macro_f1_score": 0.8052885462804397,
+                "evidence_detection_confusion_matrix": {
+                    "TN": 84569,
+                    "FP": 298,
+                    "FN": 270,
+                    "TP": 942
+                },
+                "evidence_detection_precision": 0.7596774193548387,
+                "evidence_detection_recall": 0.7772277227722773,
+                "evidence_detection_f1_score": 0.7683523654159871,
+                "table_entries": {
+                    "EvI Classification F1": 0.8052885462804397,
+                    "EvI Evidence F1": 0.7683523654159871
+                }
+            }
+        ]
+    ],
+    "best_num_steps": 9503,
+    "test_result": {
+        "classification_class_confusion_matrices": {
+            "significantly decreased": {
+                "TN": 842,
+                "TP": 232,
+                "FP": 82,
+                "FN": 62
+            },
+            "no significant difference": {
+                "TN": 645,
+                "TP": 434,
+                "FN": 80,
+                "FP": 59
+            },
+            "significantly increased": {
+                "TP": 330,
+                "TN": 727,
+                "FP": 81,
+                "FN": 80
+            }
+        },
+        "classification_class_precisions": {
+            "significantly decreased": 0.7388535031847133,
+            "no significant difference": 0.8803245436105477,
+            "significantly increased": 0.8029197080291971
+        },
+        "classification_class_recalls": {
+            "significantly decreased": 0.7891156462585034,
+            "no significant difference": 0.8443579766536965,
+            "significantly increased": 0.8048780487804879
+        },
+        "classification_class_f1_scores": {
+            "significantly decreased": 0.763157894736842,
+            "no significant difference": 0.8619662363455809,
+            "significantly increased": 0.8038976857490866
+        },
+        "classification_macro_f1_score": 0.8096739389438365,
+        "evidence_detection_confusion_matrix": {
+            "TN": 81686,
+            "FN": 338,
+            "TP": 865,
+            "FP": 252
+        },
+        "evidence_detection_precision": 0.7743957027752909,
+        "evidence_detection_recall": 0.7190357439733999,
+        "evidence_detection_f1_score": 0.7456896551724138,
+        "table_entries": {
+            "EvI Classification F1": 0.8096739389438365,
+            "EvI Evidence F1": 0.7456896551724138
+        }
+    },
+    "total_time": 95634.24761247635
+}

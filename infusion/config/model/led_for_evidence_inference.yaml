@@ -1,0 +1,24 @@
+model_name: "LED"
+task_name: "Evidence Inference"
+
+# MODEL PARAMETERS
+#num_beams: 4
+#do_sample: False
+#length_penalty: 1
+#max_length: 100
+
+evidence:
+  learn_evidence_detection: True
+  evidence_detection_weight: 0.5
+  use_evidence_loss_weights: False
+  relevant_node_types:
+    - p
+
+# TRAINING PARAMETERS
+max_steps: 10200
+min_steps: 10200
+val_check_interval: 4000  # seen instances, not steps!
+
+batch_size: 1
+accumulate_grad_batches: 8
+learning_rate: 0.00001
