@@ -1,7 +1,7 @@
 # Document Structure in Long Document Transformers
 
 -------
-<img src="/img/eyecatcher.png" alt="image" width="300" height="auto">
+<img src="/img/eyecatcher.png" alt="image" width="500" height="auto">
 
 --------
 
