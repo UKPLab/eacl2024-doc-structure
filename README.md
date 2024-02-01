@@ -9,7 +9,7 @@
 
 [UKP Lab](https://www.informatik.tu-darmstadt.de/ukp/ukp_home/index.en.jsp), [TU Darmstadt](https://www.informatik.tu-darmstadt.de/ukp/ukp_home/index.en.jsp)
 
-This repository contains the code for the paper "Document Structure in Long Document Transformers", accepted at EACL 2024 (link will follow soon).
+This repository contains the code for the paper "[Document Structure in Long Document Transformers](https://arxiv.org/abs/2401.17658)", accepted at EACL 2024.
 
 The corresponding data can be found [here](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4111)
 
@@ -51,7 +51,16 @@ Move the contents of `probing_datasets` to `probing/data/`. See `probing/README.
 
 If you happen to find our paper or this repository useful, please consider citing
 
-[add citation here when we have the link] 
+Jan Buchmann, Max Eichler, Jan Micha Bodensohn, Ilia Kuznetsov and Iryna Gurevych. 2024. [Document Structure in Long Document Transformers](https://arxiv.org/abs/2401.17658). arXiv:2401.17658.
+
+@misc{buchmann2024document,
+      title={Document Structure in Long Document Transformers}, 
+      author={Jan Buchmann and Max Eichler and Jan-Micha Bodensohn and Ilia Kuznetsov and Iryna Gurevych},
+      year={2024},
+      eprint={2401.17658},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
+} 
 
 ## References
 
