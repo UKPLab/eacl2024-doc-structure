@@ -27,17 +27,11 @@ We build our experiments on [Intertext Graphs](https://github.com/UKPLab/interte
 
 The repository is split into 3 parts. Each of these has a README that explains usage and a requirements.txt with dependencies.
 
-### infusion
-
-The infusion repository contains the code and data for downstream task experiments and pretraining. This includes the downstream task datasets in ITG format.
-
-### probing
-
-The probing repository contains the code for probing experiments and the probing datasets. To be able to use position embedding structure infusion, the infusion repository must be available.
-
-### structure_datasets
-
-The structure_datasets repository contains the code to create the downstream task datasets in the intertext graph format. Note that the the downstream task datasets in ITG format are available [here](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4111), so you should not need to recreate them.
+```
+├── infusion  # contains the code for downstream task experiments and pretraining. 
+├── probing  # contains the code for probing experiments.
+├── structure_datasets  # contains the code to create the downstream task datasets in the intertext graph format. Note that the the downstream task datasets in ITG format are available [here](https://tudatalib.ulb.tu-darmstadt.de/handle/tudatalib/4111), so you should not need to recreate them.
+```
 
 ## Usage
 
