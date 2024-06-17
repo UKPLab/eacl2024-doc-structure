@@ -45,8 +45,9 @@ Move the contents of `probing_datasets` to `probing/data/`. See `probing/README.
 
 If you happen to find our paper or this repository useful, please consider citing
 
-Jan Buchmann, Max Eichler, Jan Micha Bodensohn, Ilia Kuznetsov and Iryna Gurevych. 2024. [Document Structure in Long Document Transformers](https://arxiv.org/abs/2401.17658). arXiv:2401.17658.
+Jan Buchmann, Max Eichler, Jan-Micha Bodensohn, Ilia Kuznetsov, and Iryna Gurevych. 2024. Document Structure in Long Document Transformers. In Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers), pages 1056–1073, St. Julian’s, Malta. Association for Computational Linguistics.
 
+```
 @inproceedings{buchmann-etal-2024-document,
     title = "Document Structure in Long Document Transformers",
     author = "Buchmann, Jan  and
@@ -64,6 +65,7 @@ Jan Buchmann, Max Eichler, Jan Micha Bodensohn, Ilia Kuznetsov and Iryna Gurevyc
     url = "https://aclanthology.org/2024.eacl-long.64",
     pages = "1056--1073",
 }
+```
 
 ## References
 
