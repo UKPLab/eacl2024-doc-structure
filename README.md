@@ -47,14 +47,23 @@ If you happen to find our paper or this repository useful, please consider citin
 
 Jan Buchmann, Max Eichler, Jan Micha Bodensohn, Ilia Kuznetsov and Iryna Gurevych. 2024. [Document Structure in Long Document Transformers](https://arxiv.org/abs/2401.17658). arXiv:2401.17658.
 
-@misc{buchmann2024document,
-      title={Document Structure in Long Document Transformers}, 
-      author={Jan Buchmann and Max Eichler and Jan-Micha Bodensohn and Ilia Kuznetsov and Iryna Gurevych},
-      year={2024},
-      eprint={2401.17658},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
-} 
+@inproceedings{buchmann-etal-2024-document,
+    title = "Document Structure in Long Document Transformers",
+    author = "Buchmann, Jan  and
+      Eichler, Max  and
+      Bodensohn, Jan-Micha  and
+      Kuznetsov, Ilia  and
+      Gurevych, Iryna",
+    editor = "Graham, Yvette  and
+      Purver, Matthew",
+    booktitle = "Proceedings of the 18th Conference of the European Chapter of the Association for Computational Linguistics (Volume 1: Long Papers)",
+    month = mar,
+    year = "2024",
+    address = "St. Julian{'}s, Malta",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2024.eacl-long.64",
+    pages = "1056--1073",
+}
 
 ## References
 
